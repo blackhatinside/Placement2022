@@ -32,19 +32,19 @@ int main()
         {
             cin >> arr[i];
         }
-        sort(arr, arr + n, greater<int>());
-        int maxAns = arr[0];
-        int maxVal = arr[0];
-        int minVal = arr[0];
+        int ans = arr[0];
+        int max_value = arr[0];
+        int min_value = arr[0];
+        int choice1, choice2;
         for (int i = 1; i < n; i++)
         {
-            if (arr[i] < 0)
-                swap(maxVal, minVal);
-            maxVal = max(maxval, maxVal * arr[i]);
-            minVal = min(minval, minVal * arr[i]);
-            maxAns = max(maxAns, maxVal);
+        choice1=arr[i]*max_value;
+	    choice2=arr[i]*min_value;
+	    max_value=max(arr[i],max(choice1,choice2));
+	    min_value=min(arr[i],min(choice1,choice2));
+	    ans=max(ans,max_value);
         }
-        cout << maxAns << "\n";
+        cout << ans << "\n";
     }
 }
 
@@ -52,13 +52,15 @@ int main()
 
 //----INPUT----
 
-3
+4
 5
 6 -3 -10 0 2
 10
 8 -2 -2 0 8 0 -6 -8 -6 -1
 7
-9 0 8 -1 -2 -9 6
+9 0 8 -1 -2 -2 6
+9
+2 4 3 1 8 -6 9 5 7
 
 //----OUTPUT----
 
